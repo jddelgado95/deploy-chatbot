@@ -22,4 +22,8 @@
     text-align: left;
     line-height: 30px;
 }
-.
+.botText span {
+    background-color: #EF5350;
+    padding: 10px;
+    border-radius: 2px;
+}
