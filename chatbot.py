@@ -6,6 +6,7 @@
 #All you have to do is provide the name of the template and the variables you want to pass to the template engine as keyword arguments.
 from flask import Flask, render_template, request
 from chatterbot import ChatBot #import ChatterBot 
+from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
 
 
@@ -19,6 +20,7 @@ app = Flask(__name__)
 #storage_adapter: allows to connect to different types of databases. 
 #Using the SQLStorageAdapter allows the chat bot to connect to SQL databases.
 englishBot = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStorageAdapter") #instance of the ChatBot class
+trainer = ListTrainer(englishBot)
 trainer = ChatterBotCorpusTrainer(englishBot)
 trainer.train("chatterbot.corpus.english") #train the chatter bot for english
 
@@ -34,6 +36,7 @@ def index():
 def get_bot_response():
     userText = request.args.get('msg')
     return str(englishBot.get_response(userText))
+    print("HEY")
 
 #Allows to execute code when the file runs as a script, but not when it’s imported as a module
 if __name__ == "__main__":
