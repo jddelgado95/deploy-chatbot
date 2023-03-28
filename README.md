@@ -24,3 +24,6 @@ $ pip install flask
 $ pip install ChatterBot 
 For Mac users: 
 $ pip install chatterbot==1.0.4 #This avoids issues with your compiler. 
+
+Check chatterbot version: 
+$ python3 -m chatterbot --version
